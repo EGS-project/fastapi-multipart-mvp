@@ -5,8 +5,6 @@ from pydantic import BaseModel
 
 
 class Conversion(BaseModel):
-    format: str
-    size: int
     target_format: str
 
 
