@@ -41,7 +41,7 @@ async def login_ok():
         domain="localhost", # instead localhost -> .egs-conv.deti
         samesite="lax",
         secure=False,
-        httponly=True,
+        httponly=False,
         value="this is my data in the cookie..."
     )
     response.headers["access-control-expose-headers"] = "Set-Cookie"
@@ -59,7 +59,7 @@ async def logout(
         path = '/',
         samesite = "lax",
         secure=False,
-        httponly=True
+        httponly=False
         )
     
     return response
