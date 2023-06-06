@@ -40,7 +40,7 @@ async def login_ok():
         path="/",
         domain="localhost",
         samesite="none",
-        secure=True,
+        # secure=True,
         value="this is my data in the cookie..."
     )
 
