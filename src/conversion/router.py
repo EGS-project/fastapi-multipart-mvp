@@ -45,6 +45,7 @@ async def login_ok():
         value="this is my data in the cookie..."
     )
     response.headers["access-control-expose-headers"] = "Set-Cookie"
+    response.headers["credentials"] = "true"
     return response
 
 
