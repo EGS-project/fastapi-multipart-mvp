@@ -3,7 +3,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
-from src.conversion.router import conversion_router
+from src.conversion.router import router
 
 app = FastAPI(openapi_url="/api/v1/openapi.yaml")
 app.add_middleware(
@@ -15,7 +15,7 @@ app.add_middleware(
     expose_headers=['*']
     )
     
-app.include_router(router=conversion_router)
+app.include_router(router=router)
 
 if __name__ == '__main__':
     uvicorn.run(

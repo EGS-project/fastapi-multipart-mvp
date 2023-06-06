@@ -9,11 +9,11 @@ from starlette.responses import JSONResponse
 
 from src.conversion.schemas import ConversionCreate, ConversionRead
 
-conversion_router = APIRouter()
+router = APIRouter()
 import time
 
 
-@conversion_router.post('/api/v1/convert')
+@router.post('/api/v1/convert')
 async def convert_ok(
     conversion_create: ConversionCreate = Depends(ConversionCreate),
     image: UploadFile = File(),
@@ -32,7 +32,7 @@ async def convert_ok(
         )
 
 
-@conversion_router.post('/api/v1/login')
+@router.post('/api/v1/login')
 async def login_ok():
     response = Response(status_code=HTTPStatus.OK,content="Authorized.")
     response.set_cookie(
@@ -46,5 +46,23 @@ async def login_ok():
     )
     response.headers["access-control-expose-headers"] = "Set-Cookie"
     return response
+
+
+@router.post("/api/v1/logout")
+async def logout(
+    request: Request,
+    ):
+    response = Response(status_code=200)
+    response.delete_cookie(
+        key = "MY_SUPER_COOOKIE",
+        domain = "localhost",
+        path = '/',
+        samesite = "none",
+        secure=True,
+        httponly=False
+        )
+    
+    return response
+
 
 
