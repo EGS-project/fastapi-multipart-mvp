@@ -38,10 +38,10 @@ async def login_ok():
     response.set_cookie(
         key="MY_SUPER_COOOKIE",
         path="/",
-        domain="localhost",
-        samesite="none",
-        secure=True,
-        httponly=False,
+        domain="localhost", # instead localhost -> .egs-conv.deti
+        samesite="lax",
+        secure=False,
+        httponly=True,
         value="this is my data in the cookie..."
     )
     response.headers["access-control-expose-headers"] = "Set-Cookie"
@@ -54,12 +54,12 @@ async def logout(
     ):
     response = Response(status_code=200)
     response.delete_cookie(
-        key = "MY_SUPER_COOOKIE",
+        key = "MY_SUPER_COOOKIE", 
         domain = "localhost",
         path = '/',
-        samesite = "none",
-        secure=True,
-        httponly=False
+        samesite = "lax",
+        secure=False,
+        httponly=True
         )
     
     return response
