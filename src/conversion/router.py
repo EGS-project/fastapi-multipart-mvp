@@ -32,7 +32,7 @@ async def convert_ok(
         )
 
 
-@router.post('/api/v1/login')
+@router.get('/api/v1/login')
 async def login_ok():
     response = Response(status_code=HTTPStatus.OK,content="Authorized.")
     response.set_cookie(
@@ -48,7 +48,7 @@ async def login_ok():
     return response
 
 
-@router.post("/api/v1/logout")
+@router.get("/api/v1/logout")
 async def logout(
     request: Request,
     ):
