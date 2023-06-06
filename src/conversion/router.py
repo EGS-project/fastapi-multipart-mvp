@@ -38,9 +38,10 @@ async def login_ok():
     response.set_cookie(
         key="MY_SUPER_COOOKIE",
         path="/",
-        domain="localhost",
+        domain="localhost:8000",
         samesite="none",
         # secure=True,
+        httponly=True,
         value="this is my data in the cookie..."
     )
 
