@@ -9,7 +9,7 @@ app = FastAPI(openapi_url="/api/v1/openapi.yaml")
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:8000"],
     allow_methods=["*"],
     allow_headers=["*"],
     expose_headers=['*']
