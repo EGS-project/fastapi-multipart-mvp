@@ -40,11 +40,11 @@ async def login_ok():
         path="/",
         domain="localhost",
         samesite="none",
-        secure=False,
+        secure=True,
         httponly=True,
         value="this is my data in the cookie..."
     )
-
+    response.headers["access-control-expose-headers"] = "Set-Cookie"
     return response
 
 
